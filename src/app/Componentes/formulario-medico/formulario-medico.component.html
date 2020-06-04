@@ -1,0 +1,175 @@
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-6 ">
+
+            <form #insertarForm="ngForm">
+                <div class="form-group">
+                    <label for="nombre">Nombre</label>
+                    <input [(ngModel)]="medico.nombre" name="nombre"  type="text" required minlength="2" maxlength="40" #nombre="ngModel" class="form-control"/>
+                    <div *ngIf="nombre.invalid && (nombre.dirty || nombre.touched)" class="alert alert-danger">
+                        <div *ngIf="nombre.errors.required">
+                           campo requerido
+                        </div>
+                        <div *ngIf="nombre.errors.minlength || nombre.errors.maxlength">
+                            Rango valido 2 a 40 caracteres
+                         </div>
+            
+
+                    </div>
+                </div>
+                <div class="form-group">
+
+                    <label for="apellido">Apellido</label>
+                    <input [(ngModel)]="medico.apellido" name="apellido"  type="text" required minlength="2" maxlength="40" #apellido="ngModel" class="form-control"/>
+                    <div *ngIf="apellido.invalid && (apellido.dirty || apellido.touched)" class="alert alert-danger">
+                        <div *ngIf="apellido.errors.required">
+                            campo requerido
+                        </div>
+                        <div *ngIf="apellido.errors.minlength || apellido.errors.maxlength ">
+                            Rango valido 2 a 40 caracteres
+                         </div>
+            
+
+                    </div>
+                </div>
+
+                <div class="form-group">
+
+                    <label for="identificacion">Identificacion</label>
+                    <input  [(ngModel)]="medico.identificacion" name="identificacion"  type="text" required minlength="2" maxlength="40" #identificacion="ngModel" class="form-control"/>
+                    <div *ngIf="identificacion.invalid && (identificacion.dirty || identificacion.touched)" class="alert alert-danger">
+                        <div *ngIf="identificacion.errors.required">
+                            campo requerido
+                        </div>
+                        <div *ngIf="identificacion.errors.minlength || identificacion.errors.maxlength ">
+                            Rango valido 2 a 40 caracteres
+                         </div>
+
+                    </div>
+                </div>
+
+                <div class="form-group">
+                            <label for="tipoIdentificacion">Tipo Identificacion</label>                        
+                            <select [(ngModel)]="medico.tipoIdentificacion" name="tipoIdentificacion" class="form-control" required #tipoIdentificacion="ngModel">
+                                <option value="tarjeta identidad">tarjeta identidad</option>
+                                <option value="cedula">cedula</option>
+                                <option value="cedula extranjeria">Cedula Extranjeria</option>
+                                <option value="pasaporte" >pasaporte</option>
+                            </select>
+                            <div *ngIf="tipoIdentificacion.invalid && (tipoIdentificacion.dirty || tipoIdentificacion.touched)" class="alert alert-danger">
+                                <div *ngIf="tipoIdentificacion.errors.required">
+                                   campo requerido
+                                </div>     
+                            </div>
+                        
+                </div>
+
+                <div class="form-group">
+
+                    <label for="numeroTarjetaProfesional">N. Tarjeta Profesional</label>
+                    <input  [(ngModel)]="medico.numeroTarjetaProfesional" name="numeroTarjetaProfesional"  type="text" required minlength="2" maxlength="20" #numeroTarjetaProfesional="ngModel" class="form-control"/>
+                    <div *ngIf="numeroTarjetaProfesional.invalid && (numeroTarjetaProfesional.dirty || numeroTarjetaProfesional.touched)" class="alert alert-danger">
+                        <div *ngIf="numeroTarjetaProfesional.errors.required">
+                            campo requerido
+                        </div>
+                        <div *ngIf="numeroTarjetaProfesional.errors.minlength || numeroTarjetaProfesional.errors.maxlength ">
+                            Rango valido 2 a 20 caracteres
+                         </div>
+            
+
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="tiempoExperiencia">Experiencia</label>
+                    <input  [(ngModel)]="medico.tiempoExperiencia" name="tiempoExperiencia"  type="number" required RangoMaximo  #tiempoExperiencia="ngModel" class="form-control"/>
+
+                    <div *ngIf="tiempoExperiencia.invalid && (tiempoExperiencia.dirty || tiempoExperiencia.touched)" class="alert alert-danger">
+                        <div *ngIf="tiempoExperiencia.errors.required">
+                            campo requerido
+                        </div>
+                        <div *ngIf="tiempoExperiencia.errors.RangoMaximo">
+                            {{tiempoExperiencia.errors.RangoMaximo.message}}
+                         </div>
+            
+
+                    </div>
+                </div>
+
+                <div class="form-group">
+
+                   <label for="especialidad">Especialidad</label>
+                    <input  [(ngModel)]="medico.especialidad" name="especialidad"  type="text" required minlength="2" maxlength="40" #especialidad="ngModel" class="form-control"/>
+                    <div *ngIf="especialidad.invalid && (especialidad.dirty || especialidad.touched)" class="alert alert-danger">
+                        <div *ngIf="especialidad.errors.required">
+                            campo requerido
+                        </div>
+                        <div *ngIf="especialidad.errors.minlength || especialidad.errors.maxlength ">
+                            Rango valido 2 a 40 caracteres
+                         </div>
+
+                    </div>
+                </div>
+
+                <div class="form-group">
+
+                    <label for="inicioAtencion">Inicio Atencion</label>
+                        <select  [(ngModel)]="medico.inicioAtencion" name="inicioAtencion" class="form-control" required #inicioAtencion="ngModel">
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                            <option value="9">9</option>
+                            <option value="10">10</option>
+                            <option value="11">11</option>
+                            <option value="12">12</option>
+                            <option value="13">13</option>
+                            <option value="14">14</option>
+                            <option value="15">15</option>
+                            <option value="16">16</option>
+                            <option value="17">17</option>
+                            <option value="18">18</option>
+                        </select>
+                        <div *ngIf="inicioAtencion.invalid && (inicioAtencion.dirty || inicioAtencion.touched)" class="alert alert-danger">
+                            <div *ngIf="inicioAtencion.errors.required">
+                               campo requerido
+                            </div>     
+                        </div>
+                  
+                </div>
+
+                <div class="form-group">
+
+                     <label for="finAtencion">Fin Atencion</label>                
+                     <select  [(ngModel)]="medico.finAtencion" name="finAtencion" class="form-control" required #finAtencion="ngModel">
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                            <option value="9">9</option>
+                            <option value="10">10</option>
+                            <option value="11">11</option>
+                            <option value="12">12</option>
+                            <option value="13">13</option>
+                            <option value="14">14</option>
+                            <option value="15">15</option>
+                            <option value="16">16</option>
+                            <option value="17">17</option>
+                            <option value="18">18</option>
+
+                        
+                    </select>            
+                        <div *ngIf="finAtencion.invalid && (finAtencion.dirty || finAtencion.touched)" class="alert alert-danger">
+                            <div *ngIf="finAtencion.errors.required">
+                               campo requerido
+                            </div>     
+                        </div>
+                </div>
+
+                <button type="submit" (click)="gestionarMedico(medico)" class="btn btn-primary" [disabled]="!insertarForm.form.valid">Enviar</button>
+                <button type="reset" class="btn btn-primary ml-5" >Limpiar</button>
+
+            </form>
+
+        </div>
+        </div>
+     </div>

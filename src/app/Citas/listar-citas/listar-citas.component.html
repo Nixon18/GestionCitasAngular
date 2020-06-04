@@ -1,0 +1,41 @@
+
+	<div class="container">
+		<div class="row justify-content-center">
+			<div class="col-12 mt-4 mb-4">
+				<div class="alert alert-primary" role="alert">Lista Citas</div>
+			</div>
+		</div>
+	</div>
+
+    <div class="container">
+		<div class="row justify-content-center">
+			<div class="col-12">
+        <table  class="table table-striped table-white">
+            
+          <thead class="bg-primary text-white text-center">
+            <tr>
+              <th scope="col">Paciente</th>
+              <th scope="col">Medico</th>
+              <th scope="col">Horario Cita</th>           
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let cita of citas" class="text-center">
+              <th scope="row">{{cita.paciente}}</th>
+              <td>{{cita.medico}}</td>
+              <td>{{cita.horarioCita}}</td>
+            </tr>
+          </tbody>
+        </table>
+       
+          <button (click)="insertarCita()" class="btn btn-info" style="margin-left: 10px;">Insertar Cita</button> 
+
+        </div>
+       </div>
+      </div>
+        
+      
+
+
+
+  

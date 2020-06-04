@@ -1,0 +1,78 @@
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-6 mt-4 mb-4">
+            <div class="alert alert-primary" role="alert">Insertar Cita</div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-6 ">
+
+            <form #insertarForm="ngForm">
+                <div class="form-group">
+                    <label for="paciente">Paciente</label>
+                    <input [(ngModel)]="cita.paciente" name="paciente"  type="text" required    #paciente="ngModel" class="form-control"/>
+                    <div *ngIf="paciente.invalid && (paciente.dirty || paciente.touched)" class="alert alert-danger">
+                        <div *ngIf="paciente.errors.required">
+                           campo requerido
+                        </div>
+                    </div>
+                    <div *ngIf="responseCita.estado == '01'" class="alert alert-danger">
+                        {{responseCita.message}}
+                     </div>
+
+                </div>
+                <div class="form-group">
+
+                    <label for="medico">Medico</label>
+                    <input [(ngModel)]="cita.medico" name="medico"  type="text" required  #medico="ngModel" class="form-control"/>
+                    <div *ngIf="medico.invalid && (medico.dirty || medico.touched)" class="alert alert-danger">
+                        <div *ngIf="medico.errors.required">
+                            campo requerido
+                        </div>
+                    </div>
+                    <div *ngIf="responseCita.estado == '01'" class="alert alert-danger">
+                        {{responseCita.message}}
+                     </div>
+                </div>              
+                
+                <div class="form-group">
+
+                    <label for="horarioCita">Horario cita</label>
+                        <select  [(ngModel)]="cita.horarioCita" name="horarioCita"  class="form-control" required #horarioCita="ngModel">
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                            <option value="9">9</option>
+                            <option value="10">10</option>
+                            <option value="11">11</option>
+                            <option value="12">12</option>
+                            <option value="13">13</option>
+                            <option value="14">14</option>
+                            <option value="15">15</option>
+                            <option value="16">16</option>
+                            <option value="17">17</option>
+                            <option value="18">18</option>
+                        </select>
+                        <div *ngIf="horarioCita.invalid && (horarioCita.dirty || horarioCita.touched)" class="alert alert-danger">
+                            <div *ngIf="horarioCita.errors.required">
+                               campo requerido
+                            </div>                               
+                        </div>
+                        <div *ngIf="(responseCita.estado == '02') || (responseCita.estado == '03') " class="alert alert-danger">
+                            {{responseCita.message}}
+                         </div> 
+                  
+                </div>
+            
+
+                <button type="submit" (click)="guardarCita()" class="btn btn-primary" [disabled]="!insertarForm.form.valid">Insertar</button>
+                <button type="reset" class="btn btn-primary ml-5" >Limpiar</button>
+
+            </form>
+
+        </div>
+        </div>
+     </div>

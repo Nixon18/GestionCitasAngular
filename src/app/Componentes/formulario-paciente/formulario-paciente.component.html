@@ -1,0 +1,104 @@
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-6 ">
+
+            <form #insertarForm="ngForm">
+                <div class="form-group">
+                    <label for="nombre">Nombre</label>
+                    <input [(ngModel)]="paciente.nombre" name="nombre"  type="text" required minlength="2" maxlength="40" #nombre="ngModel" class="form-control"/>
+                    <div *ngIf="nombre.invalid && (nombre.dirty || nombre.touched)" class="alert alert-danger">
+                        <div *ngIf="nombre.errors.required">
+                           campo requerido
+                        </div>
+                        <div *ngIf="nombre.errors.minlength || nombre.errors.maxlength">
+                            Rango valido 2 a 40 caracteres
+                         </div>
+            
+
+                    </div>
+                </div>
+                <div class="form-group">
+
+                    <label for="fechaNacimiento">Fecha Nacimiento</label>
+                    <input [(ngModel)]="paciente.fechaNacimiento" name="fechaNacimiento"  type="date" required  #fechaNacimiento="ngModel" class="form-control"/>
+                    <div *ngIf="fechaNacimiento.invalid && (fechaNacimiento.dirty || fechaNacimiento.touched)" class="alert alert-danger">
+                        <div *ngIf="fechaNacimiento.errors.required">
+                            campo requerido
+                        </div>
+                        
+            
+
+                    </div>
+                </div>
+
+                <div class="form-group">
+
+                    <label for="identificacion">Identificacion</label>
+                    <input  [(ngModel)]="paciente.identificacion" name="identificacion"  type="text" required minlength="2" maxlength="40" #identificacion="ngModel" class="form-control"/>
+                    <div *ngIf="identificacion.invalid && (identificacion.dirty || identificacion.touched)" class="alert alert-danger">
+                        <div *ngIf="identificacion.errors.required">
+                            campo requerido
+                        </div>
+                        <div *ngIf="identificacion.errors.minlength || identificacion.errors.maxlength ">
+                            Rango valido 2 a 40 caracteres
+                         </div>
+
+                    </div>
+                </div>
+
+                <div class="form-group">
+                            <label for="tipoIdentificacion">Tipo Identificacion</label>                        
+                            <select [(ngModel)]="paciente.tipoIdentificacion" name="tipoIdentificacion" class="form-control" required #tipoIdentificacion="ngModel">
+                                <option value="tarjeta identidad">tarjeta identidad</option>
+                                <option value="cedula">cedula</option>
+                                <option value="cedula extranjeria">Cedula Extranjeria</option>
+                                <option value="pasaporte" >pasaporte</option>
+                            </select>
+                            <div *ngIf="tipoIdentificacion.invalid && (tipoIdentificacion.dirty || tipoIdentificacion.touched)" class="alert alert-danger">
+                                <div *ngIf="tipoIdentificacion.errors.required">
+                                   campo requerido
+                                </div>     
+                            </div>
+                        
+                </div>
+
+                <div class="form-group">
+
+                    <label for="eps">Eps</label>
+                    <input  [(ngModel)]="paciente.eps" name="eps"  type="text" required minlength="2" maxlength="20" #eps="ngModel" class="form-control"/>
+                    <div *ngIf="eps.invalid && (eps.dirty || eps.touched)" class="alert alert-danger">
+                        <div *ngIf="eps.errors.required">
+                            campo requerido
+                        </div>
+                        <div *ngIf="eps.errors.minlength || eps.errors.maxlength ">
+                            Rango valido 2 a 20 caracteres
+                         </div>
+            
+
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="historiaClinica">Historia Clinica</label>
+                    <textarea [(ngModel)]="paciente.historiaClinica" name="historiaClinica"  type="text" required minlength="10" maxlength="100"  #historiaClinica="ngModel" class="form-control" ></textarea>
+                    <div *ngIf="historiaClinica.invalid && (historiaClinica.dirty || historiaClinica.touched)" class="alert alert-danger">
+                        <div *ngIf="historiaClinica.errors.required">
+                            campo requerido
+                        </div>
+                        <div *ngIf="historiaClinica.errors.minlength || historiaClinica.errors.maxlength ">
+                            Rango valido 10 a 100 caracteres
+                         </div>
+            
+
+                    </div>
+                </div>
+            
+
+                <button type="submit" (click)="gestionarPaciente(paciente)" class="btn btn-primary" [disabled]="!insertarForm.form.valid">Enviar</button>
+                <button type="reset" class="btn btn-primary ml-5" >Limpiar</button>
+
+            </form>
+
+        </div>
+    </div>
+ </div>
