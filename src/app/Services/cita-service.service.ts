@@ -9,7 +9,7 @@ import { Response } from '../Modelo/Response';
 })
 export class CitaServiceService {
 
-  url = 'http://localhost:8383/SpringBootGestionCitas2.1.1/citas';
+  url = 'http://localhost:8484/SpringBootGestionCitas2.1.1/citas';
 
   constructor(private http:HttpClient) { }
 

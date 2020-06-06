@@ -8,7 +8,7 @@ import { Medico } from '../Modelo/Medico';
 export class MedicoServiceService {
 
   
-  url = 'http://localhost:8383/SpringBootGestionCitas2.1.1/medicos';
+  url = 'http://localhost:8484/SpringBootGestionCitas2.1.1/medicos';
 
   constructor(private http:HttpClient) { }
 
