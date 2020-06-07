@@ -1,4 +1,4 @@
-node(){
+ggggnode(){
     stage('Cloning Git') {
         checkout scm
     }
