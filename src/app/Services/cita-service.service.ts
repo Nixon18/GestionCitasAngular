@@ -8,7 +8,7 @@ import { Response } from '../Modelo/Response';
   providedIn: 'root'
 })
 export class CitaServiceService {
-s
+
   url = 'http://localhost:8484/SpringBootGestionCitas2.1.1/citas';
 
   constructor(private http:HttpClient) { }
