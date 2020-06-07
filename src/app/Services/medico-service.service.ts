@@ -4,7 +4,7 @@ import { Medico } from '../Modelo/Medico';
 
 @Injectable({
   providedIn: 'root'
-})
+})s
 export class MedicoServiceService {
 
   
